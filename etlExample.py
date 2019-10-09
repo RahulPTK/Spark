@@ -1,3 +1,11 @@
+from pyspark.sql import SparkSession
+from pyspark.sql.types import StructType, StructField, StringType, DateType, DecimalType, IntegerType
+
+spark = SparkSession.builder.master("local[*]"/master URL)\
+config("spark.sql.warehouse.dir", warehouseLocation)\
+enableHiveSupport().appName("ETL Pipeline").getOrCreate()
+
+
 """The starting point of every Spark application is the creation of a SparkSession. 
 This is a driver process that maintains all relevant information about your Spark Application and 
 it is also responsible for distributing and scheduling your application across all executors. 
